@@ -7,6 +7,20 @@ bestpos = open('SOL.txt', 'r')
 gpgga_list = ggpa(gpgga)
 bestpos_list = best_pos(bestpos)
 
-for i in range(6):
-    print(gpgga_list[i])
-    print(bestpos_list[i])
+def data_to_list(main_data):
+    '''
+        Takes a list and transposes it
+        A column turns into one list in the 2D list
+
+        main_data : 2D list of position data (from any file)
+    '''
+    singleVarLIst = []
+    TransposedList = []
+    for j in range(len(main_data[0])):
+        for point in main_data:
+            singleVarLIst.append(point[j])
+        TransposedList.append(singleVarLIst)
+        singleVarLIst = []
+    return TransposedList
+
+print(data_to_list(gpgga_list))

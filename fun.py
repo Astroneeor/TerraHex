@@ -10,7 +10,7 @@ def ggpa(unparsed):
         line = []
         #turns the degree minutes into degrees
         body[1] = int(body[1][0:2]) + float(body[1][2:])/60  
-        body[3] = int(body[3][0:2]) + float(body[3][2:])/60 
+        body[3] = -(int(body[3][0:3]) + float(body[3][3:])/60) 
         #only adds the data we care about
         for j in range(len(body)):
             if j in [0,1,3,8]:
@@ -29,7 +29,7 @@ def filesplit(file):
         sol_pot = line.split(' ')
         if sol_pot[0] == "<SOL_COMPUTED":
             sol.write(' '.join(sol_pot[1:])+'\n')
-            
+
 def best_pos(unparsed):
     '''
         splits a bestpos abbreviated ascii data into UTC time, latidute and longitude positions 

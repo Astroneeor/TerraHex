@@ -23,10 +23,10 @@ def best_pos(unparsed):
         splits a bestpos abbreviated ascii data into UTC time, latidute and longitude positions 
     '''
 
-    data = unparsed.read().splitlines()#splits data file into a list where each line of data is a row
+    data = unparsed.read().splitlines() #splits data file into a list where each line of data is a row
     final = []
     for i in data:        
-        body = i.split(' ')#splits each row of data into a list
+        body = i.split(' ') #splits each row of data into a list
         line = []
         #only adds the data we care about
         for j in range(len(body)):
@@ -35,7 +35,22 @@ def best_pos(unparsed):
         final.append(line)
     return final
 
+def data_to_list(main_data):
+    '''
+        Takes a list and transposes it
+        A column turns into one list in the 2D list
 
+        main_data : 2D list of position data (from any file)
+    '''
+    singleVarLIst = []
+    TransposedList = []
+    
+    for j in range(len(main_data[0])): # Column of 2D list
+        for point in main_data: # Value within dataset
+            singleVarLIst.append(point[j])
+        TransposedList.append(singleVarLIst)
+        singleVarLIst = [] # Reset list after appending
+    return TransposedList
 
 if __name__ == "__main__":
     F = open("GGPA.txt",'r')

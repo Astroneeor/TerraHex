@@ -18,6 +18,18 @@ def ggpa(unparsed):
         final.append(line)
     return final
 
+def filesplit(file):
+    lines = file.read().splitlines()
+    gppa = open("GGPA.txt",'a')
+    sol = open("SOL.txt",'a')
+    for line in lines:
+        gppa_pot = line.split(',')
+        if gppa_pot[0] == "$GPGGA" or gppa_pot[0] == "[USB3]$GPGGA":
+            gppa.write(','.join(gppa_pot[1:])+'\n')
+        sol_pot = line.split(' ')
+        if sol_pot[0] == "<SOL_COMPUTED":
+            sol.write(' '.join(sol_pot[1:])+'\n')
+            
 def best_pos(unparsed):
     '''
         splits a bestpos abbreviated ascii data into UTC time, latidute and longitude positions 
@@ -53,6 +65,6 @@ def data_to_list(main_data):
     return TransposedList
 
 if __name__ == "__main__":
-    F = open("GGPA.txt",'r')
-    print(ggpa(F))
+    F = open("NewData_3-19.gps",'r')
+    print(filesplit(F))
     

@@ -40,7 +40,13 @@ body {
     border: 1px solid var(--accent-color);
     transition: background-color var(--transition-duration), border var(--transition-duration);
 }
-  
+
+.icon {
+    width: 80px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
 header {
     margin-bottom: 30px;
 }

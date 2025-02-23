@@ -7,18 +7,21 @@ from fileWork import *
 # Given data (converted to float)
 data = bestpos_list
 
+
 # Convert to numpy arrays
 latitude = np.array([float(d[0]) for d in data])
 longitude = np.array([float(d[1]) for d in data])
 altitude = np.array([float(d[2]) for d in data])
 time = np.arange(len(latitude))  # Time as index
 
+'''
 # Apply Gaussian smoothing
 sigma = 4  # Standard deviation for smoothing
 smoothed_latitude = gaussian_filter1d(latitude, sigma=sigma)
 smoothed_longitude = gaussian_filter1d(longitude, sigma=sigma)
 smoothed_altitude = gaussian_filter1d(altitude, sigma=sigma)
-
+'''
+'''
 def exponential_moving_average(data, alpha=0.3):
     smoothed = np.zeros_like(data)
     smoothed[0] = data[0]  # Set initial value
@@ -30,6 +33,8 @@ def exponential_moving_average(data, alpha=0.3):
 smoothed_latitude = exponential_moving_average(latitude)
 smoothed_longitude = exponential_moving_average(longitude)
 smoothed_altitude = exponential_moving_average(altitude)
+'''
+
 
 from filterpy.kalman import KalmanFilter
 

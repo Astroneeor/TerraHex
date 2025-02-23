@@ -1,3 +1,4 @@
+### Thsi file sets global variabels taht we can use for the data, and uses the fucntiosn defiend in fun.py to parse the data ###
 import csv
 from fun import *
 

@@ -10,8 +10,7 @@
   <header>
     <div class="container">
       <h1>G-Hacks Image Gallery</h1>
-      <p>Various graphs of our data, including numerous methods for smoothing out the data, in searching for a method of smoothing the data 
-        that leads to the most accurate graph, while maintaining the consistancy and information of the original data, without skewing it.</data>
+      <p>These are the various methods and types of visualizations we came up with while working with the graphs. Most of these are plotted with MatPlotLib, using various smoothing methods from different python librarys and using numpy arrays.</data>
       </p>
     </div>
   </header>
@@ -24,19 +23,27 @@
         </div>
         <div class="gallery-item">
           <img src="ema_smoothed_path.png" alt="Exponential Moving Average Smoothing">
-          <p>Graph after applying a Moving Average filter.</p>
+          <p>Graph after applying an Exponential Moving Average filter. This gives more weight to the most recent points, and less weight to the older points, this kept the trends intact but still wasn't the most effective smoothing method.</p>
         </div>
         <div class="gallery-item">
           <img src="gaussian_smoothed_path.png" alt="Gaussian Smoothing">
-          <p>Gaussian smoothing applied to reduce noise while maintaining structure.</p>
+          <p>Gaussian smoothing applied to reduce noise while maintaining structure. Is similar to EMA, however the weighting of points follows a bell curve, meaning closer values also have more influence. The strength of smoothing is determined by a factor sigma, which we have set to 4, this gave the best resuls</p>
         </div>
         <div class="gallery-item">
           <img src="kalman_smoothed_path.png" alt="Kalman Filter Smoothing">
-          <p>Savitzky-Golay filter used to preserve sharp edges while reducing the influence of extrenous values.</p>
+          <p>This is the kalman smoothing method, it's more complex but is a common method used in GPS data smoothing. It's a method that uses previous values to predict the next value like extrapolation, and them chooses how trustworthy the prediction is. This ended up giving a similar result to EMA</p>
         </div>
         <div class="gallery-item">
           <img src="3D_mapping_plot.png" alt="3D Plot">
-          <p>3D representation of the recorded route, including altitude changes.</p>
+          <p>3D representation of the recorded route, including altitude changes. We can see the altitude changes and varies a lot, and this was because of obstructions in the path, this is the raw data.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="3D_mapping_plot_smoothed.png" alt="3D Plot Smoothed">
+          <p>3D representation of the smoothed data, this using the gaussian smoothing method as it was the most effective, with a sigma of 10. The change in altitude at the end is due to the building and us stopping the recording, making it an outlier in the data that should'nt be considered</p>
+        </div>
+        <div class="gallery-item">
+          <img src="googleearth.png" alt="Google Earth Plot">
+          <p>This was mapped out by exporting our data as a csv file, and importing the points into google earth. It clearly shows the points where we had errors and the reasons for them, mainly being the building and walking underneath structures. As well as he paths taken to some extent due to our unsteady walking.</p>
         </div>
       </div>
     </div>

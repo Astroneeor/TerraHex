@@ -15,7 +15,7 @@ altitude = np.array([float(d[2]) for d in data])
 time = np.arange(len(latitude))  # Time as index
 
 # Apply Gaussian smoothing
-sigma = 2  # Standard deviation for smoothing
+sigma = 4  # Standard deviation for smoothing
 smoothed_latitude = gaussian_filter1d(latitude, sigma=sigma)
 smoothed_longitude = gaussian_filter1d(longitude, sigma=sigma)
 smoothed_altitude = gaussian_filter1d(altitude, sigma=sigma)
@@ -43,6 +43,6 @@ def animation_func(i):
     artist = plt.scatter(x, y, marker='o', linestyle='-', color='black', label="Smoothed Path", s=10)
     return artist,plot
 
-animation = FuncAnimation(fig, animation_func,interval = 0,blit=True,frames=1940)
-animation.save("walking_path.gif", writer="imagemagick", fps=600)
+interval = 100 # set to 0 for max speed, set to 100 for real time speed
+animation = FuncAnimation(fig, animation_func,interval = interval,blit=True,frames=1940)
 plt.show()

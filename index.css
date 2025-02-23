@@ -99,7 +99,17 @@ a:hover {
     text-decoration: underline;
     color: #6a0dad;
 }
-  
+
+.graph-gif {
+    display: block;
+    width: 60%;  /* Adjust size (e.g., 60% of container width) */
+    max-width: 600px; /* Prevents it from getting too big */
+    margin: 0 auto 20px; /* Centers the GIF and adds spacing */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Adds a shadow */
+}
+
+
 /* Button styles */
 .gallery-button {
     display: inline-block;

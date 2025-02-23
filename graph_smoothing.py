@@ -7,19 +7,16 @@ from fileWork import *
 # Given data (converted to float)
 data = bestpos_list
 
-# Setting plot variables
-plt.figure(figsize=(8, 6))
-plt.xlabel('Longitude')
-plt.ylabel('Latitude')
-plt.legend()
-plt.grid()
-
 # Convert to numpy arrays
 latitude = np.array([float(d[0]) for d in data])
 longitude = np.array([float(d[1]) for d in data])
 altitude = np.array([float(d[2]) for d in data])
 time = np.arange(len(latitude))  # Time as index
 
+plt.title('Raw Walking Path')
+plt.plot(longitude, latitude, marker='o', linestyle='-', color='black', label="Raw Path")
+plt.savefig("raw_path.png", dpi=600, bbox_inches='tight')
+plt.gca().cla()
 
 # Apply Gaussian smoothing
 sigma = 4  # Standard deviation for smoothing
@@ -28,8 +25,9 @@ smoothed_longitude_gauss = gaussian_filter1d(longitude, sigma=sigma)
 smoothed_altitude_gauss = gaussian_filter1d(altitude, sigma=sigma)
 
 plt.title('Gaussian Smoothed Walking Path')
-plt.plot(smoothed_longitude_gauss, smoothed_latitude_gauss, marker='o', linestyle='-', color='green', label="Smoothed Path")
+plt.plot(smoothed_longitude_gauss, smoothed_latitude_gauss, marker='o', linestyle='-', color='red', label="Smoothed Path")
 plt.savefig("gaussian_smoothed_path.png", dpi=600, bbox_inches='tight')
+plt.gca().cla()
 
 #Exponential Moving Average smoothing
 def exponential_moving_average(data, alpha=0.3):
@@ -47,6 +45,7 @@ smoothed_altitude_ema = exponential_moving_average(altitude)
 plt.title('Exponential Moving Average Smoothed Walking Path')
 plt.plot(smoothed_longitude_ema, smoothed_latitude_ema, marker='o', linestyle='-', color='green', label="Smoothed Path")
 plt.savefig("ema_smoothed_path.png", dpi=600, bbox_inches='tight')
+plt.gca().cla()
 
 #Kalman Filter Smothing
 from filterpy.kalman import KalmanFilter

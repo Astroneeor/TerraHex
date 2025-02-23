@@ -1,0 +1,108 @@
+/* table.css */
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --accent-color: #9935e0;
+    --primary-font: 'Poppins', sans-serif;
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --table-bg: #1e1e1e;
+    --border-color: #444;
+    --hover-color: #6a0dad;
+    --transition: 0.3s;
+}
+
+/* Base styles */
+body {
+    font-family: var(--primary-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: auto;
+    background: var(--table-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--accent-color);
+}
+
+/* Header */
+h1 {
+    font-size: 2.5em;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #292929;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #222;
+}
+
+tbody tr:hover {
+    background-color: var(--hover-color);
+    transition: var(--transition);
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background-color: #5a007d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

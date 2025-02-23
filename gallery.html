@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Gallery - G-Hacks</title>
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>G-Hacks Image Gallery</h1>
+      <p>Various graphs of our data, including numerous methods for smoothing out the data, in searching for a method of smoothing the data 
+        that leads to the most accurate graph, while maintaining the consistancy and information of the original data, without skewing it.</data>
+      </p>
+    </div>
+  </header>
+  <main>
+    <div class="container gallery-container">
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="raw_path.png" alt="Raw Data Plot">
+          <p>Raw data plot showing the recorded surveying path without applying any smoothing methods.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="ema_smoothed_path.png" alt="Exponential Moving Average Smoothing">
+          <p>Graph after applying a Moving Average filter.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="gaussian_smoothed_path.png" alt="Gaussian Smoothing">
+          <p>Gaussian smoothing applied to reduce noise while maintaining structure.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="kalman_smoothed_path.png" alt="Kalman Filter Smoothing">
+          <p>Savitzky-Golay filter used to preserve sharp edges while reducing the influence of extrenous values.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="3D_mapping_plot.png" alt="3D Plot">
+          <p>3D representation of the recorded route, including altitude changes.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <a href="index.html" class="back-button">Back to Homepage</a>
+    </div>
+  </footer>
+</body>
+</html>

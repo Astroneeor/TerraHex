@@ -12,7 +12,7 @@ y_full = data[0]
 for i in range(len(x_full)):
     x_full[i] = float(x_full[i])-51
     y_full[i] = float(y_full[i])+114
-plt.scatter(x_full,y_full)
+plt.plot(x_full,y_full)
 plt.xlim(min(x_full),max(x_full))
 plt.ylim(min(y_full),max(y_full))
 plt.show()

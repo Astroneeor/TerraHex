@@ -20,4 +20,7 @@ ax.set_title('Path taken while surveying')
 ax.set_xlabel('Latitude')
 ax.set_ylabel('Longitude')
 ax.set_zlabel('Altitude')
+
+plt.savefig("3D_mapping_plot.png", dpi=600, bbox_inches='tight')
 plt.show()
+

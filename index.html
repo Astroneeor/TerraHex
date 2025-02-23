@@ -32,8 +32,7 @@
       </section>
       <section id="logbook">
         <h2>Logbook</h2>
-        <div class="category-box">
-          <article>
+        <div class="category-box" style="padding-left: 40px;">
             <h3>February 22, 2025</h3>
             <ul>
               <li><strong>10:15am:</strong> Arrived at venue and received project details.</li>
@@ -48,23 +47,50 @@
               <li><strong>3:00pm:</strong> Discovered data loss issues during saving; resurveying was needed.</li>
               <li><strong>3:19pm:</strong> Resurveyed campus to capture complete route data.</li>
               <li><strong>3:20pm:</strong> Finished surveying and analyzed the full route data.</li>
+              <li><strong>3:30pm:</strong> Began analyzing new data, and began plotting various graphs using it.</li>
+              <li><strong>4:00pm:</strong> Finished plotting the longitude and latitude graph.</li>
+              <li><strong>4:30pm:</strong> Began to smooth the 2D plot.</li>
+              <li><strong>6:00pm:</strong> Finished the 3D plot of the route.</li>
             </ul>
-          </article>
         </div>
       </section>
       <section>
-        <h2>
-            Sources of Error
-            <!-- Comment on Data, and possible errors involving the height of the 3D plots, the changes near the trees, and the accuracy of the GPS data. -->
-        </h2>
+      <h2>Graphs and Figures</h2>
+        <article>
+          <!-- Input pictures of the graphs, and the screenshot (or if possible, interactive version) of the Google Earth map-->
+           The above pictures are the graphs created from the data gathered from our surveying, as well as a map plotting the data we gathered
+           on Google Earth, which shows the route taken while surveying. We also have a 2D graph, and animation of the route taken, which is also
+           smoothed, to reduce the amount of extrenous points that skew the path. Alongside these two figures, our final graph is a 3D showing of all of
+           the data points collected, along with the recorded height of each point, this data is not smoothed however, so the points are plotted 
+           exactly as they were recorded, to give a better visual of how the data was recorded, and better explain possible inconsitencies.
+        </article>
       </section>
       <section>
-        <h2>
-            Conclusion
-            <!-- Comment on the importance of the data, the gratitude for using the equipment and participating in the hackathon, as well as the importance of geomatics in general with regards to surverying and advancing progress -->
-        </h2>
+        <h2>Sources of Error</h2>
+            <!-- Comment on Data, and possible errors involving the height of the 3D plots, the changes near the trees, and the accuracy of the GPS data. -->
+              <article>
+                As evident from the above figures, there are many errors and inconsistencies in the data collected. The figures, especially
+                the one shown on Google Earth show the reasoning for the descrepencies in the data. As shown in the figure, many roofs and trees
+                were along the route taken while surveying, which skewed the data collected, as the sensor could not get a very accurate reading,
+                due to the interference, which prevented the satellite's signal from correctly being recorded with the sensor. This is noticable on the
+                3D plot as well, specifically the huge differences in height between the points, which shows that the surveying had a change in height of 50 meters,
+                which, as seen from the Google Earth plot, is not possible.
+                <br>
+                <br>
+                Another possible source of error, is the smoothing of the path from the 2D plot. The smoothing takes the average of the points that
+                are close to each other, which omits some extrenous points, in an attempt to adress the afformentioned possible causes of error, though 
+                in doing so, may omit data points that are more accurate than the trend depicted. However, the inaccuracy is most likely less than one meter,
+                which is negligable with regards to the total distance traveled, and is not as significant as the errors caused by the inaccuracies
+                due to the buildings and other interferences to the satellite's signals.
+              </article>
       </section>
-    </div>
+      <section>
+        <h2>Conclusion</h2>
+            <!-- Comment on the importance of the data, the gratitude for using the equipment and participating in the hackathon, as well as the importance of geomatics in general with regards to surverying and advancing progress -->
+              <article>
+                
+              </article>
+      </section>
   </main>
 </body>
 </html>

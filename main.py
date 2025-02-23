@@ -1,17 +1,18 @@
-import csv
-from fun import *
+from fileWork import gpgga_list, bestpos_list
 from geomath import *
+import matplotlib.pyplot as plt
 import math
+from fun import *
 
-gpgga = open('GGPA.txt', 'r')
-bestpos = open('SOL.txt', 'r')
-gpgga_list = ggpa(gpgga)
-bestpos_list = best_pos(bestpos)
-
-with open('output_ggpa.csv', 'w', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerows(gpgga_list)
-
-with open('output_best.csv', 'w', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerows(bestpos_list)
+f = open("SOL.txt",'r')
+bestpos = best_pos(f)
+data = data_to_list(bestpos)
+x_full = data[0]
+y_full = data[1]
+for i in range(len(x_full)):
+    x_full[i] = float(x_full[i])-51
+    y_full[i] = float(y_full[i])+114
+plt.scatter(x_full,y_full)
+plt.xlim(min(x_full),max(x_full))
+plt.ylim(min(y_full),max(y_full))
+plt.show()

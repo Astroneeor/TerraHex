@@ -17,6 +17,8 @@
 
 /* General Styles */
 body {
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
     font-family: var(--body-font);
     background-color: var(--bg-color);
     color: var(--text-color);

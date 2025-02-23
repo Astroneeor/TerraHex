@@ -44,4 +44,5 @@ def animation_func(i):
     return artist,plot
 
 animation = FuncAnimation(fig, animation_func,interval = 0,blit=True,frames=1940)
+animation.save("walking_path.gif", writer="imagemagick", fps=600)
 plt.show()

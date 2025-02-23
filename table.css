@@ -17,6 +17,8 @@
 /* Base styles */
 body {
     font-family: var(--primary-font);
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
     background-color: var(--bg-color);
     color: var(--text-color);
     text-align: center;

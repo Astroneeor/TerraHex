@@ -22,7 +22,7 @@ ax.set_xlabel('Latitude')
 ax.set_ylabel('Longitude')
 ax.set_zlabel('Altitude')
 
-plt.savefig("3D_mapping_plot.png", dpi=600, bbox_inches='tight')
+plt.savefig("images/3D_mapping_plot.png", dpi=600, bbox_inches='tight')
 ax.cla()
 
 sigma = 10  # Standard deviation for smoothing
@@ -36,6 +36,6 @@ ax.set_xlabel('Latitude')
 ax.set_ylabel('Longitude')
 ax.set_zlabel('Altitude')
 
-plt.savefig("3D_mapping_plot_smoothed.png", dpi=600, bbox_inches='tight')
+plt.savefig("images/3D_mapping_plot_smoothed.png", dpi=600, bbox_inches='tight')
 plt.show()
 

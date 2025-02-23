@@ -1,6 +1,3 @@
-/* gallery.css */
-
-/* Use the same theme as index.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
@@ -15,7 +12,6 @@
     --transition-duration: 0.3s;
 }
 
-/* General Styles */
 body {
     background: url('background.png') no-repeat center center fixed;
     background-size: cover;
@@ -36,7 +32,6 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Heading */
 h1 {
     font-size: 2.5em;
     color: var(--accent-color);
@@ -48,7 +43,6 @@ p {
     margin-bottom: 20px;
 }
 
-/* Image Gallery */
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
@@ -81,12 +75,10 @@ p {
     font-size: 0.9em;
 }
 
-/* Hover effect */
 .gallery-item:hover {
     transform: scale(1.05);
 }
 
-/* Back Button */
 .back-button {
     display: inline-block;
     background-color: var(--accent-color);
@@ -102,7 +94,6 @@ p {
     background-color: #5a007d;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .container {
         width: 90%;

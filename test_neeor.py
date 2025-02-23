@@ -1,3 +1,4 @@
+### THIS IS A TEST FILE TO TEST OUT THE EXPORTING OF ANIMATION, IT IS SAVED UNDER TEST HOWEVER WE FOUND IT MROE EFFICIENT TO USE A SCREEN RECORDING, THAT IS WHAT YOU WILL SEE IN THE WEBSITE ###
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 import random

@@ -44,5 +44,5 @@ def animation_func(i):
     return artist,plot
 
 animation = FuncAnimation(fig, animation_func,interval = 100,blit=True,frames=1940,save_count = 1940)
-animation.save("test.mp4")
+animation.save("images/test.mp4")
 # plt.show()

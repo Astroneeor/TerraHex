@@ -1,6 +1,9 @@
 # Functions for geomatics math data
 # lamba is longitude
 # phi is latitude
+# This isn't exactly used in the program, we made it because it thought it would be
+# Later proved to be useful for the star tracking, but that hasn't been fully implemented yet
+
 from math import cos, sin, sqrt
 
 semimajor = 6378137.0

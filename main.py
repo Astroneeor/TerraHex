@@ -1,10 +1,10 @@
+### We have a lot of files but this was basically the bouler plate for how we figured out the data, using the functions for data parsing, and plotting the data. More of a testing ground for the data. ###
+
 from fileWork import gpgga_list, bestpos_list
-from geomath import *
 import matplotlib.pyplot as plt
-import math
 from fun import *
 
-f = open("SOL.txt",'r')
+f = open("data_files/SOL.txt",'r')
 bestpos = best_pos(f)
 data = data_to_list(bestpos)
 x_full = data[1]

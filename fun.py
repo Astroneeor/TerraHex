@@ -1,4 +1,4 @@
-#functions file
+### FUNCTIONS FILE WHERE WE PARSE AND CONVERT THE DATA TO BE MORE USABLE ###
 def ggpa(unparsed):
     '''
         splits a $GPGGALONG data into UTC time, latidute and longitude positions 
@@ -19,14 +19,19 @@ def ggpa(unparsed):
     return final
 
 def filesplit(file):
+    '''
+        Splits the data into two files, one for the GPGGA data and one for the bestpos data
+
+        Takes in the whole log file and splits it based off of the header tags, and splits by their respective data
+    '''
     lines = file.read().splitlines()
-    gppa = open("GGPA.txt",'a')
-    sol = open("SOL.txt",'a')
+    gppa = open("GGPA.txt",'a') # opens gpgga file to write to
+    sol = open("SOL.txt",'a') # opens sol file to write bestpos data to
     for line in lines:
-        gppa_pot = line.split(',')
+        gppa_pot = line.split(',') #all gpgga data is seperated by commas
         if gppa_pot[0] == "$GPGGA" or gppa_pot[0] == "[USB3]$GPGGA":
             gppa.write(','.join(gppa_pot[1:])+'\n')
-        sol_pot = line.split(' ')
+        sol_pot = line.split(' ') #all bestpos data is seperated by spaces
         if sol_pot[0] == "<SOL_COMPUTED":
             sol.write(' '.join(sol_pot[1:])+'\n')
 

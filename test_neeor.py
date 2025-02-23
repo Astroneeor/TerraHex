@@ -1,51 +1,47 @@
+from matplotlib import pyplot as plt
+from matplotlib.animation import FuncAnimation
+import random
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy.ndimage import gaussian_filter1d
-import pandas as pd
-from fileWork import *
+from fun import *
 
-# Given data (converted to float)
-data = bestpos_list
+f = open("GGPA.txt",'r')
+data = np.array(ggpa(f),float)
 
-# Convert to numpy arrays
-latitude = np.array([float(d[0]) for d in data])
-longitude = np.array([float(d[1]) for d in data])
-altitude = np.array([float(d[2]) for d in data])
-time = np.arange(len(latitude))  # Time as index
+def point_distance(index):
+    dist_list = []
+    for i in range(len(data)):
+        distance = (data[index][0]-data[i][0])**2 + (data[index][1]-data[i][1])**2
+        dist_list.append([distance,i])
+    dist_list.sort()
+    return dist_list
 
-# Apply Gaussian smoothing
-sigma = 2  # Standard deviation for smoothing
-smoothed_latitude = gaussian_filter1d(latitude, sigma=sigma)
-smoothed_longitude = gaussian_filter1d(longitude, sigma=sigma)
-smoothed_altitude = gaussian_filter1d(altitude, sigma=sigma)
+fig = plt.figure(figsize=(7,5))
+plt.xlabel('')
+plt.ylabel('')
+plt.xticks([])
+sub = fig.subplots()
+x = []
+y = []
+color = []
+plt.ylim(51.07876365330000112,51.07946448127999872)
+plt.xlim(-114.13189630482000325,-114.1304518726600037)
+plot = sub.plot([], [], animated=True)[0]
+pos_x = 0
 
-# Create a dataframe to display
-df_smoothed = pd.DataFrame({
-    'Time Index': time,
-    'Smoothed Latitude': smoothed_latitude,
-    'Smoothed Longitude': smoothed_longitude,
-    'Smoothed Altitude': smoothed_altitude
-})
+def animation_func(i):
+    distance = point_distance(i)
+    x_avg,y_avg = [0,0]
+    for j in range(10):
+        x_avg += data[distance[j][1]][2]
+        y_avg += data[distance[j][1]][1]
+    x_avg/=10
+    y_avg/=10
+    print(x_avg,y_avg)
+    x.append(x_avg)
+    y.append(y_avg)
+    color.append(0)
+    artist = plt.scatter(x, y, c = color, s = 20, alpha = 0.5)
+    return artist,plot
 
-# Display the smoothed data
-print("\nSmoothed Coordinate Data:")
-print(df_smoothed)
-
-plt.figure(figsize=(8, 6))
-plt.plot(smoothed_longitude, smoothed_latitude, marker='o', linestyle='-', color='blue', label="Smoothed Path")
-plt.xlabel('Longitude')
-plt.ylabel('Latitude')
-plt.title('Smoothed Walking Path')
-plt.legend()
-plt.grid()
-plt.show()
-
-# Plot Smoothed Altitude vs Time
-plt.figure(figsize=(8, 4))
-plt.plot(time, smoothed_altitude, marker='o', linestyle='-', color='red', label="Smoothed Altitude")
-plt.xlabel('Time Index')
-plt.ylabel('Altitude (meters)')
-plt.title('Smoothed Altitude Over Time')
-plt.legend()
-plt.grid()
+animation = FuncAnimation(fig, animation_func,interval = 1,blit=True,frames=1940)
 plt.show()

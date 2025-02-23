@@ -7,8 +7,8 @@ from fun import *
 f = open("SOL.txt",'r')
 bestpos = best_pos(f)
 data = data_to_list(bestpos)
-x_full = data[0]
-y_full = data[1]
+x_full = data[1]
+y_full = data[0]
 for i in range(len(x_full)):
     x_full[i] = float(x_full[i])-51
     y_full[i] = float(y_full[i])+114
